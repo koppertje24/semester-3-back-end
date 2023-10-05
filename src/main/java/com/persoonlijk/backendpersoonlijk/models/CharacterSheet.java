@@ -12,4 +12,13 @@ public class CharacterSheet {
 
     @Column(name = "CharacterName")
     private String CharacterName;
+
+    public Long GetId() {
+        return id;
+    }
+
+    public String getCharacterName() {
+        return CharacterName;
+    }
+
 }
