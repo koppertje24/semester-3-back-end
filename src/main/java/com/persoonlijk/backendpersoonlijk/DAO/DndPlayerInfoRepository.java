@@ -8,5 +8,4 @@ import java.util.List;
 
 public interface DndPlayerInfoRepository extends JpaRepository<DndPlayerInfo, Long> {
 
-    List<DndPlayerInfo> findDndPlayerInfoById(Long playerId);
 }
