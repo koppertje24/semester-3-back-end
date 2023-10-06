@@ -1,6 +1,6 @@
 package com.persoonlijk.backendpersoonlijk.controllers;
 
-import com.persoonlijk.backendpersoonlijk.models.CharacterSheet;
+import com.persoonlijk.backendpersoonlijk.DatabaseModels.CharacterSheet;
 import com.persoonlijk.backendpersoonlijk.services.CharacterSheetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,4 +1,4 @@
-package com.persoonlijk.backendpersoonlijk.models;
+package com.persoonlijk.backendpersoonlijk.DatabaseModels;
 import jakarta.persistence.*;
 import lombok.Data;
 

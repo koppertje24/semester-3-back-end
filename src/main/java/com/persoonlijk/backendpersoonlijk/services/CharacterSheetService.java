@@ -1,7 +1,7 @@
 package com.persoonlijk.backendpersoonlijk.services;
 
 import com.persoonlijk.backendpersoonlijk.DAO.CharacterSheetRepository;
-import com.persoonlijk.backendpersoonlijk.models.CharacterSheet;
+import com.persoonlijk.backendpersoonlijk.DatabaseModels.CharacterSheet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
