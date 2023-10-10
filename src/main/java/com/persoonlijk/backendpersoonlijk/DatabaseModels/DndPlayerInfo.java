@@ -14,7 +14,7 @@ public class DndPlayerInfo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "CharacterName")
+    @Column(name = "PlayerName")
     private String PlayerName;
 
     @OneToMany

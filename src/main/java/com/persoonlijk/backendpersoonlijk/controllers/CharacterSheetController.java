@@ -3,10 +3,7 @@ package com.persoonlijk.backendpersoonlijk.controllers;
 import com.persoonlijk.backendpersoonlijk.DatabaseModels.CharacterSheet;
 import com.persoonlijk.backendpersoonlijk.services.CharacterSheetService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/characters")
@@ -19,8 +16,10 @@ public class CharacterSheetController {
         this.characterSheetService = characterSheetService;
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/get/{id}")
     public CharacterSheet getCharacterSheetById(@PathVariable Long id) {
         return characterSheetService.getCharacterSheetById(id);
     }
+
+
 }

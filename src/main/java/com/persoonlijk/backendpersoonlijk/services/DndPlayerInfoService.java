@@ -32,4 +32,27 @@ public class DndPlayerInfoService {
             return null;
         }
     }
+
+    public DndPlayerInfo createDndPlayerInfo(DndPlayerInfo newDndPlayerInfo) {
+        // Save the new character sheet to the database using the repository's save method
+        return playerInfoRepository.save(newDndPlayerInfo);
+    }
+
+    public DndPlayerInfo updateDndPlayerInfo(Long id, int characterId, CharacterSheet updatedDndPlayerInfo) {
+        DndPlayerInfo existingDndPlayerInfo = playerInfoRepository.findById(id)
+                .orElse(null);
+
+        // get the character sheet that needs updating
+        List<CharacterSheet> characterSheets = existingDndPlayerInfo.getPlayerCharacters();
+        CharacterSheet item = characterSheets.get(characterId);
+        // Update the fields of the character sheet with the new data
+        item.setCharacterName(updatedDndPlayerInfo.getCharacterName());
+        characterSheets.set(characterId, item);
+
+        // save the info in the database.
+        existingDndPlayerInfo.setPlayerCharacters(characterSheets);
+
+        // Save the updated character sheet to the database
+        return playerInfoRepository.save(existingDndPlayerInfo);
+    }
 }

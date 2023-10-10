@@ -11,9 +11,9 @@ public class configuration implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**")
+        registry.addMapping("/**") // dedicated path that is allowed to be used.
                 .allowedOrigins("http://localhost:3000") // Allow requests from this origin
-                .allowedMethods("GET", "POST", "PUT", "DELETE")
+                .allowedMethods("GET", "POST", "PUT", "DELETE") // allowes what is allowed to do.
                 .allowedHeaders("Content-Type", "Authorization")
                 .maxAge(3600); // Max age for preflight (OPTIONS) requests
     }
