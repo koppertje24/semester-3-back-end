@@ -1,5 +1,6 @@
 package com.persoonlijk.backendpersoonlijk.services;
 
+import com.persoonlijk.backendpersoonlijk.DAO.CharacterSheetRepository;
 import com.persoonlijk.backendpersoonlijk.DAO.DndPlayerInfoRepository;
 import com.persoonlijk.backendpersoonlijk.DatabaseModels.CharacterSheet;
 import com.persoonlijk.backendpersoonlijk.DatabaseModels.DndPlayerInfo;
@@ -14,10 +15,12 @@ import java.util.Optional;
 public class DndPlayerInfoService {
 
     private final DndPlayerInfoRepository playerInfoRepository;
+    private final CharacterSheetRepository characterSheetRepository;
 
     @Autowired
-    public DndPlayerInfoService(DndPlayerInfoRepository playerInfoRepository) {
+    public DndPlayerInfoService(DndPlayerInfoRepository playerInfoRepository, CharacterSheetRepository characterSheetRepository) {
         this.playerInfoRepository = playerInfoRepository;
+        this.characterSheetRepository = characterSheetRepository;
     }
 
     public DndPlayerInfo getCharacterSheetsByPlayerId(Long playerId) {
@@ -36,6 +39,33 @@ public class DndPlayerInfoService {
     public DndPlayerInfo createDndPlayerInfo(DndPlayerInfo newDndPlayerInfo) {
         // Save the new character sheet to the database using the repository's save method
         return playerInfoRepository.save(newDndPlayerInfo);
+    }
+
+    public DndPlayerInfo createDndCharacter(Long id, CharacterSheet newDndCaracter) {
+        DndPlayerInfo existingDndPlayerInfo = playerInfoRepository.findById(id).orElse(null);
+
+        if (existingDndPlayerInfo == null) {
+            return null;
+        }
+
+        // List<CharacterSheet> characterSheets = existingDndPlayerInfo.getPlayerCharacters();
+
+        newDndCaracter.setPlayerId(id);
+
+        // how it ectualy works
+        characterSheetRepository.save(newDndCaracter);
+
+        return existingDndPlayerInfo;
+
+        /* how i tought it should work
+        characterSheets.add(newDndCaracter);
+
+        // You can update the playerCharacters property directly in the entity
+        existingDndPlayerInfo.setPlayerCharacters(characterSheets);
+
+        // Save the updated DndPlayerInfo entity to the repository
+        return playerInfoRepository.save(existingDndPlayerInfo);
+        */
     }
 
     public DndPlayerInfo updateDndPlayerInfo(Long id, int characterId, CharacterSheet updatedDndPlayerInfo) {

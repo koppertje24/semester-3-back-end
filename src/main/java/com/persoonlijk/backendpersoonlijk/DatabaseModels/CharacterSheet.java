@@ -10,15 +10,9 @@ public class CharacterSheet {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "CharacterName")
+    @Column(name = "characterName")
     private String CharacterName;
 
-    public Long GetId() {
-        return id;
-    }
-
-    public String getCharacterName() {
-        return CharacterName;
-    }
-
+    @Column(name = "playerId")
+    private Long playerId;
 }

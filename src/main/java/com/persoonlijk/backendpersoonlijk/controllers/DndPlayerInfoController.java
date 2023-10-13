@@ -33,6 +33,12 @@ public class DndPlayerInfoController {
         return playerInfoService.updateDndPlayerInfo(id, characterId, updatedCharacterSheet);
     }
 
+
+    @PostMapping("/post/{id}/Character")
+    public DndPlayerInfo createCharacterSheet(@PathVariable Long id, @RequestBody CharacterSheet updatedCharacterSheet) {
+        return playerInfoService.createDndCharacter(id, updatedCharacterSheet);
+    }
+
     @PostMapping("/post/{id}")
     public DndPlayerInfo createPlayerInfo(@RequestBody DndPlayerInfo newCharacterSheet) {
         return playerInfoService.createDndPlayerInfo(newCharacterSheet);

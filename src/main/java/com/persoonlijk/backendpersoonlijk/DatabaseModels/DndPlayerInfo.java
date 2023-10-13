@@ -18,18 +18,7 @@ public class DndPlayerInfo {
     private String PlayerName;
 
     @OneToMany
-    @JoinColumn(name = "Sheet_Id", referencedColumnName = "id")
+    @JoinColumn(name = "playerId", referencedColumnName = "id")
     private List<CharacterSheet> PlayerCharacters;
 
-    public Long GetId() {
-        return id;
-    }
-
-    public String getPlayerName() {
-        return PlayerName;
-    }
-
-    public List<CharacterSheet> GetPlayerSheets(){
-        return PlayerCharacters;
-    }
 }
