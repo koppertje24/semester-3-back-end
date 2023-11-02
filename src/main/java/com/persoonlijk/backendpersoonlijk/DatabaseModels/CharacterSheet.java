@@ -33,6 +33,16 @@ public class CharacterSheet {
     @Column(name = "characterClass")
     private EnumCharacterlass CharacterClass;
 
+    @Column(name = "abilityScores")
+    private short[] AbilityScores;
+
+    @Column(name = "skillProficiency")
+    private boolean[] SkillProficiency;
+
+    @Column(name = "characterLevel")
+    private short CharacterLevel = 1;
+
     @Column(name = "playerId")
     private Long playerId;
 }
+
