@@ -23,6 +23,7 @@ maven_test:
 
 Docker_building:
   stage: deploy
+  image: maven:docker:19.03.12
 
   before_script:
     - apt-get update -y
