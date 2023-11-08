@@ -3,11 +3,13 @@ image: maven:3.8.4-openjdk-17
 stages:
   - build
   - test
+  - deploy
 
 build:
   stage: build
   script:
     - mvn clean install
+
 
 maven_test:
   stage: test
@@ -18,3 +20,10 @@ maven_test:
   script:
     - mvn test -Dspring.profiles.active=test
 
+
+Docker_building:
+  stage: deploy
+
+  script:
+    - docker build -t registry.gitlab.com/I517297/semester-3-back-end/DockerImages/dnd-scharacter-backend:latest .
+    - docker push registry.gitlab.com/I517297/semester-3-back-end/DockerImages/dnd-scharacter-backend:latest
