@@ -1,23 +1,25 @@
 package com.persoonlijk.backendpersoonlijk;
 
-import com.persoonlijk.backendpersoonlijk.DAO.CharacterSheetRepository;
 import com.persoonlijk.backendpersoonlijk.DAO.DndPlayerInfoRepository;
-import com.persoonlijk.backendpersoonlijk.DatabaseModels.DndPlayerInfo;
 import com.persoonlijk.backendpersoonlijk.services.DndPlayerInfoService;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.ActiveProfiles;
 
-import java.util.Optional;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.*;
 
+@ActiveProfiles("test")
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
 public class DndPlayerInfoServiceTest {
+
+    @Autowired
+    private DndPlayerInfoService myService;
+
+    @MockBean
+    private DndPlayerInfoRepository someRepository;
+
 
     @Test
     public void buildTest() {
