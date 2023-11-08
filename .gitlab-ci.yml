@@ -1,13 +1,18 @@
 image: maven:3.8.4-openjdk-17
 
 stages:
+  - build
   - test
+
+build:
+  stage: build
+  script:
+    - mvn clean install
 
 maven_test:
   stage: test
 
   before_script:
-        - mvn clean compile
         - mvn clean install -DskipTests
 
   script:
