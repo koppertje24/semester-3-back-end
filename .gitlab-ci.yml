@@ -1,14 +1,17 @@
 image: maven:3.8.4-openjdk-17
 
 stages:
+  - build
   - test
 
-maven_test:
-  stage: test
-
-  before_script:
-        - mvn clean compile
-
+build:
+  stage: build
   script:
-    - mvn test
+    - ./mvnw package -DskipTests
+
+test:
+  stage: test
+  script:
+    - ./mvnw test -Dspring.profiles.active=test
+
 
