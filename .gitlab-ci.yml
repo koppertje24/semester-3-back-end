@@ -25,10 +25,6 @@ Docker_building:
   stage: deploy
   image: docker:19.03.12
 
-  before_script:
-    - apt-get update -y
-    - apt-get install -y docker.io  # Install Docker
-    - service docker start  # Start Docker service
 
   script:
     - docker build -t registry.gitlab.com/I517297/semester-3-back-end/DockerImages/dnd-scharacter-backend:latest .
