@@ -27,5 +27,5 @@ Docker_building:
 
 
   script:
-    - docker build -t registry.gitlab.com/I517297/semester-3-back-end/docker-images/dnd-scharacter-backend:latest .
-    - docker push registry.gitlab.com/I517297/semester-3-back-end/docker-images/dnd-scharacter-backend:latest
+    - docker build -t registry.git.fhict.nl/I517297/semester-3-back-end/docker-images/dnd-scharacter-backend:latest .
+    - docker push registry.git.fhict.nl/I517297/semester-3-back-end/docker-images/dnd-scharacter-backend:latest
