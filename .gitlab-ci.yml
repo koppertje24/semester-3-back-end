@@ -30,7 +30,6 @@ Docker_building:
   - docker:19.03.13-dind
 
   script:
-   script:
     - docker build -t $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME .
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
     - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
