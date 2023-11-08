@@ -6,9 +6,6 @@ stages:
 maven_test:
   stage: test
 
-  before_script:
-        - mvn clean compile
-        - mvn clean install -DskipTests
 
   script:
     - mvn test
