@@ -6,6 +6,8 @@ stages:
 maven_test:
   stage: test
 
+  before_script:
+        - mvn clean compile
 
   script:
     - mvn test
