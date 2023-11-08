@@ -8,6 +8,7 @@ maven_test:
 
   before_script:
         - mvn clean compile
+        - mvn clean install -DskipTests
 
   script:
     - mvn test
