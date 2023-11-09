@@ -24,10 +24,10 @@ maven_test:
 Docker_building:
   stage: Docker
 
-  image: docker:24.0.7
+  image: docker:20.10.24
 
   services:
-    - docker:24.0.7-dind
+    - docker:20.10.24-dind
 
   variables:
     DOCKER_HOST: "tcp://docker:2375"
