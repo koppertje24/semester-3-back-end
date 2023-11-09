@@ -11,7 +11,7 @@ COPY --from=build /app/ ./
 RUN mvn clean package
 
 # Create the production-ready image
-FROM adoptopenjdk/openjdk17:alpine-slim
+FROM adoptopenjdk/openjdk17:alpine
 WORKDIR /app
-COPY --from=final /app/target/dnd-scharacter-backend.jar .  # Replace "your-app" with your actual app name
-CMD ["java", "-jar", "your-app.jar"]
+COPY --from=final /app/target/dnd-scharacter-backend.jar .
+CMD ["java", "-jar", "dnd-scharacter-backend.jar"]
