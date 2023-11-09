@@ -27,7 +27,7 @@ Docker_building:
   image: docker:19.03.12
 
   services:
-    - "docker:18-dind"
+    - docker:18.09-dind
 
   variables:
     DOCKER_HOST: "tcp://docker:2375"
