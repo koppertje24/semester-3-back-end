@@ -1,9 +1,9 @@
 image: maven:3.8.4-openjdk-17
 
 stages:
+  - Docker
   - build
   - test
-  - Docker
 
 build:
   stage: build
@@ -27,7 +27,7 @@ Docker_building:
   image: docker:19.03.12
 
   services:
-    - docker:18.09-dind
+    - docker:19-dind
 
   variables:
     DOCKER_HOST: "tcp://docker:2375"
