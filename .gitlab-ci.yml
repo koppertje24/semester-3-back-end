@@ -24,10 +24,6 @@ maven_test:
 Docker_building:
   stage: Docker
 
-  variables:
-    DOCKER_HOST: tcp://docker:2375/
-    DOCKER_DRIVER: overlay2
-
   image: docker:19.03.12
 
   script:
