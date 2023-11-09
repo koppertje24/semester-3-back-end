@@ -1,9 +1,9 @@
 image: maven:3.8.4-openjdk-17
 
 stages:
-  - Docker
   - build
   - test
+  #- Docker
 
 build:
   stage: build
