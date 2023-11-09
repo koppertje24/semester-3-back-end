@@ -27,7 +27,4 @@ Docker_building:
   image: docker:19.03.12
 
   script:
-    - echo $DOCKER_USERNAME::$DOCKERHUB_TOKEN
-    - docker login -u $DOCKER_USERNAME -p $DOCKERHUB_TOKEN
-    - docker build -t $DOCKER_USERNAME/semester-3-backend .
-    - docker push $DOCKER_USERNAME/semester-3-backend
+    - docker build -t back-end .
