@@ -12,8 +12,8 @@ build:
     - all
 
   script:
-    - echo %path%
-    - mvn clean
+    - echo $Env:Path
+    - mvn clean install
 
 
 maven_test:
