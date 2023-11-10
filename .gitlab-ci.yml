@@ -1,12 +1,29 @@
-image: maven:3.8.4-openjdk-17
+image: maven:3.8.8-openjdk-17
 
 stages:
   - build
   - test
   - Docker
 
+variables:
+  CI_BUILD_PATH: "C:\\Program Files\\Eclipse Adoptium\\jdk-21.0.1.12-hotspot\\bin;C:\\Program Files\\Apache\\maven\\apache-maven-3.8.8\\bin"
+
+before_script:
+  - echo $Env:Path
+  - $Env:Path += ";$CI_BUILD_PATH"
+  - echo $Env:Path
+
 build:
   stage: build
+
+  tags:
+    - all
+
+  before_script:
+    - echo $Env:Path
+    - $Env:Path += ";$CI_BUILD_PATH"
+    - echo $Env:Path
+
   script:
     - mvn clean install
 
@@ -14,11 +31,17 @@ build:
 maven_test:
   stage: test
 
+  tags:
+    - all
+
   before_script:
-        - mvn clean install -DskipTests
+    - echo $Env:Path
+    - $Env:Path += ";$CI_BUILD_PATH"
+    - echo $Env:Path
+    - mvn clean install -DskipTests
 
   script:
-    - mvn test -Dspring.profiles.active=test
+    - mvn test
 
 
 Docker_building:
@@ -28,14 +51,6 @@ Docker_building:
 
   tags:
     - docker
-
-  services:
-    - docker:20.10.24-dind
-
-  variables:
-    DOCKER_HOST: "tcp://docker:2375"
-    DOCKER_TLS_CERTDIR: ""
-    DOCKER_DRIVER: overlay2
 
   script:
     - docker build -t back-end .
