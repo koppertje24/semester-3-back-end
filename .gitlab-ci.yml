@@ -12,6 +12,7 @@ build:
     - all
 
   script:
+    - echo &path&
     - mvn clean
 
 
