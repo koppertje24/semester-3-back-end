@@ -1,17 +1,20 @@
-# Build Stage
-FROM maven:3.9.5-eclipse-temurin-17 AS build
-WORKDIR /app
-COPY ./pom.xml ./src ./
-RUN mvn clean test
+# Use the Maven image with Eclipse Temurin JDK 17 as the base image
+FROM maven:3.6.3-openjdk-17-slim
 
-# Final Stage
-FROM maven:3.9.5-eclipse-temurin-17 AS final
-WORKDIR /app
-COPY --from=build /app/ ./
-RUN mvn clean package
+# Set the working directory in the container
+WORKDIR /usr/src/app
 
-# Create the production-ready image
-FROM maven:3.9.5-eclipse-temurin-17
-WORKDIR /app
-COPY ./pom.xml ./src ./
-CMD ["java", "-jar", "dnd-scharacter-backend.jar"]
+# Copy the Maven POM file
+COPY pom.xml .
+
+# Download the Maven dependencies (not the whole project, to leverage Docker cache)
+RUN mvn dependency:go-offline
+
+# Copy the application source code
+COPY src ./src
+
+# Build the application
+RUN mvn package
+
+# Specify the default command to run when the container starts
+CMD ["java", "-jar", "target/your-application.jar"]
