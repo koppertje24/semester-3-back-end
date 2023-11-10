@@ -12,7 +12,7 @@ build:
     - all
 
   script:
-    - mvn clean install
+    - mvn clean
 
 
 maven_test:
