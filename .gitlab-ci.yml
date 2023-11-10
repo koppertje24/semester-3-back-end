@@ -60,8 +60,6 @@ Docker_building:
     DOCKER_TLS_CERTDIR: ""
     DOCKER_DRIVER: overlay2
 
-  before_script:
-    - docker login -i
 
   script:
     - docker build -t back-end .
