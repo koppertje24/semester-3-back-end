@@ -16,13 +16,9 @@ build:
     - all
 
   before_script:
-    - if [ -f /.dockerenv ]; then
-        echo "Running in a Docker container.";
-      else
-        echo $Env:Path;
-        $Env:Path += ";$CI_BUILD_PATH"
-        echo $Env:Path;
-      fi
+    - echo $Env:Path;
+    - $Env:Path += ";$CI_BUILD_PATH"
+    - echo $Env:Path;
 
   script:
     - mvn clean install
@@ -35,14 +31,9 @@ maven_test:
     - all
 
   before_script:
-
-    - if [ -f /.dockerenv ]; then
-        echo "Running in a Docker container.";
-      else
-        echo $Env:Path;
-        $Env:Path += ";$CI_BUILD_PATH"
-        echo $Env:Path;
-      fi
+    - echo $Env:Path
+    - $Env:Path += ";$CI_BUILD_PATH"
+    - echo $Env:Path
     - mvn clean install -DskipTests
 
   script:
