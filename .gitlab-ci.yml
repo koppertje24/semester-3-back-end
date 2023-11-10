@@ -1,5 +1,3 @@
-image: maven:3.8.4-openjdk-17
-
 stages:
   - build
   - test
@@ -43,10 +41,10 @@ maven_test:
 Docker_building:
   stage: Docker
 
-  image: docker:20.10.24
-
   tags:
     - docker
 
   script:
     - docker build -t back-end .
+  only:
+    - main
