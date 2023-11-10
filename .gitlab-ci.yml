@@ -19,7 +19,10 @@ build:
   tags:
     - all
 
-  
+  before_script:
+    - echo $Env:Path
+    - $Env:Path += ";$CI_BUILD_PATH"
+    - echo $Env:Path
 
   script:
     - mvn clean install
@@ -32,7 +35,10 @@ maven_test:
     - all
 
   before_script:
-        - mvn clean install -DskipTests
+    - echo $Env:Path
+    - $Env:Path += ";$CI_BUILD_PATH"
+    - echo $Env:Path
+    - mvn clean install -DskipTests
 
   script:
     - mvn test -Dspring.profiles.active=test
