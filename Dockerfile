@@ -17,4 +17,4 @@ COPY src ./src
 RUN mvn package
 
 # Specify the default command to run when the container starts
-CMD ["java", "-jar", "target/back-end.jar"]
+CMD ["java", "-jar", "target/back-end-persoonlijk-0.0.1-SNAPSHOT.jar"]
