@@ -26,7 +26,8 @@ Docker_building:
 
   image: docker:20.10.24
 
-  when: manual
+  tags:
+    - docker
 
   services:
     - docker:20.10.24-dind
