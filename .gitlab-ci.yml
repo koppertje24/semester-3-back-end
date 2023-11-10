@@ -7,12 +7,19 @@ stages:
 
 build:
   stage: build
+
+  tags:
+    - all
+    
   script:
     - mvn clean install
 
 
 maven_test:
   stage: test
+
+  tags:
+    - all
 
   before_script:
         - mvn clean install -DskipTests
