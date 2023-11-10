@@ -8,10 +8,6 @@ stages:
 variables:
   CI_BUILD_PATH: "C:\\Program Files\\Eclipse Adoptium\\jdk-21.0.1.12-hotspot\\bin;C:\\Program Files\\Apache\\maven\\apache-maven-3.8.8\\bin"
 
-before_script:
-  - echo $Env:Path
-  - $Env:Path += ";$CI_BUILD_PATH"
-  - echo $Env:Path
 
 build:
   stage: build
@@ -20,9 +16,13 @@ build:
     - all
 
   before_script:
-    - echo $Env:Path
-    - $Env:Path += ";$CI_BUILD_PATH"
-    - echo $Env:Path
+    - if [ -n "$DOCKER_HOST" ]; then
+        echo "Running in a Docker container.";
+      else
+        echo $Env:Path;
+        $Env:Path += ";$CI_BUILD_PATH"
+        echo $Env:Path;
+      fi
 
   script:
     - mvn clean install
@@ -35,9 +35,14 @@ maven_test:
     - all
 
   before_script:
-    - echo $Env:Path
-    - $Env:Path += ";$CI_BUILD_PATH"
-    - echo $Env:Path
+
+    - if [ -n "$DOCKER_HOST" ]; then
+        echo "Running in a Docker container.";
+      else
+        echo $Env:Path;
+        $Env:Path += ";$CI_BUILD_PATH"
+        echo $Env:Path;
+      fi
     - mvn clean install -DskipTests
 
   script:
