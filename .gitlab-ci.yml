@@ -41,7 +41,7 @@ maven_test:
     - mvn clean install -DskipTests
 
   script:
-    - mvn test -Dspring.profiles.active=test
+    - mvn test
 
 
 Docker_building:
