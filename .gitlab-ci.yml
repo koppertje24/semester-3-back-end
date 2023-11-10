@@ -38,7 +38,7 @@ Docker_building:
     DOCKER_DRIVER: overlay2
 
   before_script:
-    - docker login -u koppertje24
+    - docker login -i
 
   script:
     - docker build -t back-end .
