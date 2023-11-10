@@ -13,5 +13,5 @@ RUN mvn clean package
 # Create the production-ready image
 FROM maven:3.9.5-eclipse-temurin-17
 WORKDIR /app
-COPY --from=final /app/target/dnd-scharacter-backend.jar .
+COPY ./pom.xml ./src ./
 CMD ["java", "-jar", "dnd-scharacter-backend.jar"]
