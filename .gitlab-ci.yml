@@ -16,7 +16,7 @@ build:
     - all
 
   before_script:
-    - if [ -n "$DOCKER_HOST" ]; then
+    - if [ -f /.dockerenv ]; then
         echo "Running in a Docker container.";
       else
         echo $Env:Path;
