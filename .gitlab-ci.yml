@@ -19,7 +19,7 @@ build:
     - echo $Env:Path;
 
   script:
-    - mvn clean install -X
+    - mvn clean install -X -DskipTests
 
 
 maven_test:
