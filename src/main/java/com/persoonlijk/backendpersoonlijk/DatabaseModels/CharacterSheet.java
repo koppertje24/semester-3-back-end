@@ -2,6 +2,7 @@ package com.persoonlijk.backendpersoonlijk.DatabaseModels;
 import jakarta.persistence.*;
 import lombok.Data;
 
+
 @Entity
 @Data
 public class CharacterSheet {
@@ -34,7 +35,7 @@ public class CharacterSheet {
     private EnumCharacterlass CharacterClass;
 
     @Column(name = "abilityScores")
-    private short[] AbilityScores;
+    private CharacterAbilityScores AbilityScores;
 
     @Column(name = "skillProficiency")
     private boolean[] SkillProficiency;

@@ -25,7 +25,9 @@ public class DndPlayerInfoController {
 
     @GetMapping("/get/{id}")
     public DndPlayerInfo getCharacterSheetsByPlayerId(@PathVariable Long id) {
-        return playerInfoService.getCharacterSheetsByPlayerId(id);
+        DndPlayerInfo answer = playerInfoService.getCharacterSheetsByPlayerId(id);
+
+        return answer;
     }
 
     @PutMapping("/put/{id}/Character/{characterId}")

@@ -68,15 +68,18 @@ public class DndPlayerInfoService {
         */
     }
 
-    public DndPlayerInfo updateDndPlayerInfo(Long id, int characterId, CharacterSheet updatedDndPlayerInfo) {
+    public DndPlayerInfo updateDndPlayerInfo(Long id, int characterId, CharacterSheet updatedDndCharInfo) {
         DndPlayerInfo existingDndPlayerInfo = playerInfoRepository.findById(id)
                 .orElse(null);
 
         // get the character sheet that needs updating
         List<CharacterSheet> characterSheets = existingDndPlayerInfo.getPlayerCharacters();
         CharacterSheet item = characterSheets.get(characterId);
+
         // Update the fields of the character sheet with the new data
-        item.setCharacterName(updatedDndPlayerInfo.getCharacterName());
+        item.setCharacterName(updatedDndCharInfo.getCharacterName());
+        item.setCharacterClass(updatedDndCharInfo.getCharacterClass());
+
         characterSheets.set(characterId, item);
 
         // save the info in the database.
