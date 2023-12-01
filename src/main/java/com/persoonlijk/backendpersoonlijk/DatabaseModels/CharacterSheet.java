@@ -41,7 +41,7 @@ public class CharacterSheet {
     private boolean[] SkillProficiency;
 
     @Column(name = "characterLevel")
-    private short CharacterLevel = 1;
+    private short CharacterLevel = 0;
 
     @Column(name = "playerId")
     private Long playerId;

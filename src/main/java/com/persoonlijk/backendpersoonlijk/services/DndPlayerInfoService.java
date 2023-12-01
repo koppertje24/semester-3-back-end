@@ -79,6 +79,7 @@ public class DndPlayerInfoService {
         // Update the fields of the character sheet with the new data
         item.setCharacterName(updatedDndCharInfo.getCharacterName());
         item.setCharacterClass(updatedDndCharInfo.getCharacterClass());
+        item.setCharacterLevel(updatedDndCharInfo.getCharacterLevel());
 
         characterSheets.set(characterId, item);
 
