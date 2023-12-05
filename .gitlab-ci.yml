@@ -3,9 +3,6 @@ stages:
   - test
   - Docker
 
-variables:
-  CI_BUILD_PATH: "C:\\Program Files\\Eclipse Adoptium\\jdk-21.0.1.12-hotspot\\bin;C:\\Program Files\\Apache\\maven\\apache-maven-3.8.8\\bin"
-
 
 build:
   stage: build
@@ -14,8 +11,6 @@ build:
     - all
 
   before_script:
-    - echo $Env:Path;
-    - $Env:Path += ";$CI_BUILD_PATH"
     - echo $Env:Path;
 
   script:
@@ -29,8 +24,6 @@ maven_test:
     - all
 
   before_script:
-    - echo $Env:Path
-    - $Env:Path += ";$CI_BUILD_PATH"
     - echo $Env:Path
     - mvn clean install -DskipTests
 
