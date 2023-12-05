@@ -44,9 +44,6 @@ Docker_building:
   tags:
     - docker
 
-  before_script:
-    - docker login -u $DOCKER_USERNAME -p $DOCKERHUB_TOKEN $CI_REGISTRY
-
   script:
     - docker build -t back-end .
   only:
