@@ -3,6 +3,8 @@ stages:
   - test
   - Docker
 
+before_script:
+  - "curl -X POST --fail -F token=$FRONT_END_TOKEN -F ref=REF_NAME https://git.fhict.nl/api/v4/projects/54639/trigger/pipeline"
 
 build:
   stage: build
