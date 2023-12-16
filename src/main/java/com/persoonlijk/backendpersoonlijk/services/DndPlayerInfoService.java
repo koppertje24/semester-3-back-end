@@ -56,24 +56,25 @@ public class DndPlayerInfoService {
         characterSheetRepository.save(newDndCaracter);
 
         return existingDndPlayerInfo;
-
-        /* how i tought it should work
-        characterSheets.add(newDndCaracter);
-
-        // You can update the playerCharacters property directly in the entity
-        existingDndPlayerInfo.setPlayerCharacters(characterSheets);
-
-        // Save the updated DndPlayerInfo entity to the repository
-        return playerInfoRepository.save(existingDndPlayerInfo);
-        */
     }
 
     public DndPlayerInfo updateDndPlayerInfo(Long id, int characterId, CharacterSheet updatedDndCharInfo) {
         DndPlayerInfo existingDndPlayerInfo = playerInfoRepository.findById(id)
                 .orElse(null);
 
+        if(existingDndPlayerInfo == null)
+        {
+            return null;
+        }
+
         // get the character sheet that needs updating
         List<CharacterSheet> characterSheets = existingDndPlayerInfo.getPlayerCharacters();
+
+        if (characterSheets.toArray().length < characterId)
+        {
+            return null;
+        }
+
         CharacterSheet item = characterSheets.get(characterId);
 
         // Update the fields of the character sheet with the new data
