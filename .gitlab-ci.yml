@@ -10,7 +10,7 @@ build:
     - all
 
   before_script:
-    - "curl POST --fail -F token=$FRONT_END_TOKEN -F ref=REF_NAME https://git.fhict.nl/api/v4/projects/54639/trigger/pipeline"
+    - "curl POST --fail -F token=$FRONT_END_TOKEN -F ref=main https://git.fhict.nl/api/v4/projects/54639/trigger/pipeline"
     - echo $Env:Path;
 
   script:
