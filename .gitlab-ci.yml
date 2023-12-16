@@ -10,8 +10,7 @@ build:
     - all
 
   before_script:
-    - Invoke-WebRequest -Method Post -Body @{"token"="$FRONT_END_TOKEN"; "ref"="main"} -Uri "https://git.fhict.nl/api/v4/projects/54639/trigger/pipeline"
-
+    - Invoke-WebRequest -Method Post -Body @{"token"="$FRONT_END_TOKEN"; "ref"="main"} -Uri "https://git.fhict.nl/api/v4/projects/54639/trigger/pipeline" -UseBasicParsing
     - echo $Env:Path;
 
   script:
