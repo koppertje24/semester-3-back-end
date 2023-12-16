@@ -23,7 +23,7 @@ public class DndPlayerInfoServiceTest {
 
     @Test
     public void buildTest() {
-        assertTrue(true);
+        assertTrue(false);
     }
 
     // Add more tests for other methods in the service
