@@ -10,26 +10,24 @@ build:
     - all
 
   before_script:
-    - |
-      $headers = @{
-        "PRIVATE-TOKEN" = "$GITLAB_ACCESCODE"
-      }
-      $pipelineStatusUrl = "https://git.fhict.nl/api/v4/projects/54639/pipelines"
-      $response = Invoke-RestMethod -Uri $pipelineStatusUrl -Headers $headers -Method Get -UseBasicParsing
-      $runningPipelines = $response | Where-Object { $_.status -eq "running" -or $_.status -eq "pending" }
+    # - |
+    #   $headers = @{
+    #     "PRIVATE-TOKEN" = "$GITLAB_ACCESCODE"
+    #   }
+    #   $pipelineStatusUrl = "https://git.fhict.nl/api/v4/projects/54639/pipelines"
+    #   $response = Invoke-RestMethod -Uri $pipelineStatusUrl -Headers $headers -Method Get -UseBasicParsing
+    #   $runningPipelines = $response | Where-Object { $_.status -eq "running" -or $_.status -eq "pending" }
 
-      if ($runningPipelines.Count -eq 0) {
-        $triggerPipelineUrl = "https://git.fhict.nl/api/v4/projects/54639/trigger/pipeline"
-        $body = @{
-          "token" = "$FRONT_END_TOKEN"
-          "ref" = "main"
-        }
-        Invoke-RestMethod -Uri $triggerPipelineUrl -Body $body -Method Post -UseBasicParsing
-      }
+    #    if ($runningPipelines.Count -eq 0) {
+    #     $triggerPipelineUrl = "https://git.fhict.nl/api/v4/projects/54639/trigger/pipeline"
+    #     $body = @{
+    #       "token" = "$FRONT_END_TOKEN"
+    #       "ref" = "main"
+    #     }
+    #     Invoke-RestMethod -Uri $triggerPipelineUrl -Body $body -Method Post -UseBasicParsing
+    #   } 
 
-
-
-    - Invoke-WebRequest -Method Post -Body @{"token"="$FRONT_END_TOKEN"; "ref"="main"} -Uri "https://git.fhict.nl/api/v4/projects/54639/trigger/pipeline" -UseBasicParsing
+    # - Invoke-WebRequest -Method Post -Body @{"token"="$FRONT_END_TOKEN"; "ref"="main"} -Uri "https://git.fhict.nl/api/v4/projects/54639/trigger/pipeline" -UseBasicParsing
     - echo $Env:Path;
 
   script:
