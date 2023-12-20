@@ -86,6 +86,8 @@ sonarqube-check:
   allow_failure: true
   rules:
     - if: $CI_COMMIT_REF_NAME == 'main' || $CI_PIPELINE_SOURCE == 'merge_request_event'
+  tags:
+    - all
 
 vulnerability-report:
   stage: sonarqube-vulnerability-report
@@ -103,5 +105,8 @@ vulnerability-report:
       sast: gl-sast-sonar-report.json
   dependencies:
     - sonarqube-check
+  
+  tags:
+    - all
 
 
