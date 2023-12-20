@@ -89,6 +89,8 @@ sonarqube-check:
     - master
     - main
     - develop
+  tags:
+    - all
 
 sonarqube-vulnerability-report:
   stage: sonarqube-vulnerability-report
@@ -106,3 +108,5 @@ sonarqube-vulnerability-report:
       sast: gl-sast-sonar-report.json
   dependencies:
     - sonarqube-check
+  tags:
+    - all
