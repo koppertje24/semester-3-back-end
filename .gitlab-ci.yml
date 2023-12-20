@@ -98,8 +98,9 @@ sonarqube-vulnerability-report:
     - |
       $base64AuthInfo = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes("${SONAR_TOKEN}:"))
       $url = "${SONAR_HOST_URL}/api/issues/gitlab_sast_export?projectKey=I517297_semester-3-back-end_AYyGaxsbYfOWsWXJQ1a-&branch=${CI_COMMIT_BRANCH}&pullRequest=${CI_MERGE_REQUEST_IID}"
-      Write-Host "Requesting URL: $url"
       Invoke-WebRequest -Uri $url -Headers @{Authorization=("Basic {0}" -f $base64AuthInfo)} -OutFile gl-sast-sonar-report.json
+
+
   allow_failure: true
   only:
     - merge_requests
