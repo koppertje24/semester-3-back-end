@@ -15,6 +15,9 @@
 	<description>this is the back-end of my personal project</description>
 	<properties>
 		<java.version>17</java.version>
+		<sonar.projectKey>I517297_semester-3-back-end_AYyGaxsbYfOWsWXJQ1a-</sonar.projectKey>
+		<sonar.projectName>semester-3-back-end</sonar.projectName>
+		<sonar.qualitygate.wait>true</sonar.qualitygate.wait>
 	</properties>
 	<dependencies>
 		<dependency>
