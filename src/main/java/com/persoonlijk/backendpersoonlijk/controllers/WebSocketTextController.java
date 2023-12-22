@@ -20,13 +20,14 @@ public class WebSocketTextController {
 
     @PostMapping("/send")
     public ResponseEntity<Void> sendMessage(@RequestBody TextMessageDTO textMessageDTO) {
-        webSocketService.sendLogMessage("Server log: Sending message");
+        webSocketService.sendLogMessage("User Joined");
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @MessageMapping("/sendMessage")
     public void receiveMessage(@Payload TextMessageDTO textMessageDTO) {
-        webSocketService.sendLogMessage("Server log: Received message");
+        // love this.
+        webSocketService.sendLogMessage(textMessageDTO.getMessage());
         // receive message from client
     }
 
