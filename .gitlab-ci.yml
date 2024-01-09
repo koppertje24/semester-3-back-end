@@ -57,7 +57,7 @@ Docker_building:
     - docker
 
   variables:
-    DOCKER_IMAGE_NAME: $DOCKER_USERNAME"/semester-3-2023-fontys"
+    DOCKER_IMAGE_NAME: $DOCKER_USERNAME"/back-end-semester-3-2023-fontys"
     DOCKER_REGISTRY: "docker.io"
 
   before_script:
