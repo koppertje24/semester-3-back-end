@@ -25,7 +25,7 @@ import static org.mockito.Mockito.when;
 
 @ActiveProfiles("test")
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
-public class DndPlayerInfoServiceTest {
+public class    DndPlayerInfoServiceTest {
 
     @Autowired
     private DndPlayerInfoService dndPlayerInfoService;

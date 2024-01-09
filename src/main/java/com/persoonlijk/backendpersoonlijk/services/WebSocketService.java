@@ -13,7 +13,6 @@ public class WebSocketService {
     @Autowired
     private SimpMessagingTemplate template;
 
-
     public void sendLogMessage(String logMessage) {
         TextMessageDTO logDTO = new TextMessageDTO();
         String timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new java.util.Date());
