@@ -74,6 +74,7 @@ Docker_building:
 Deploy:
   stage: deploy
   script:
+    - export DOCKER_USERNAME=$DOCKER_USERNAME
     - docker-compose up -d
   only:
     - main
