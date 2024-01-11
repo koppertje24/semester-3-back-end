@@ -78,7 +78,7 @@ Deploy:
   - docker
   
   script:
-    - export DOCKER_USERNAME=$DOCKER_USERNAME
+    - set DOCKER_USERNAME=$DOCKER_USERNAME
     - docker-compose up -d
   only:
     - main
