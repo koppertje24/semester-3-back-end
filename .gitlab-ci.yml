@@ -4,6 +4,7 @@ stages:
   - sonarqube-check
   - sonarqube-vulnerability-report
   - Docker
+  - deploy
 
 build:
   stage: build
@@ -70,6 +71,13 @@ Docker_building:
   only:
     - main
 
+Deploy:
+  stage: deploy
+  script:
+    - docker-compose up -d
+  only:
+    - main
+  when: manual
 
 sonarqube-check:
   stage: sonarqube-check
