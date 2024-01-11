@@ -1,12 +1,12 @@
 version: '1'
 services:
   front-end:
-    image: $DOCKER_USERNAME"/front-end-semester-3-2023-fontys"
+    image: $DOCKER_USERNAME/front-end-semester-3-2023-fontys
     ports:
       - "3000:3000"
   data-front-end:
-    image: $DOCKER_USERNAME"/data-front-end-semester-3-2023-fontys"
+    image: $DOCKER_USERNAME/data-front-end-semester-3-2023-fontys
     ports:
       - "5000:5000"
   back-end:
-    image: $DOCKER_USERNAME"/back-end-semester-3-2023-fontys"
+    image: $DOCKER_USERNAME/back-end-semester-3-2023-fontys
