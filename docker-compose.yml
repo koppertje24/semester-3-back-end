@@ -10,3 +10,5 @@ services:
       - "5000:5000"
   back-end:
     image: $DOCKER_USERNAME/back-end-semester-3-2023-fontys
+    ports:
+      - "8080:8080"
