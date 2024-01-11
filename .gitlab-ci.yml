@@ -73,6 +73,10 @@ Docker_building:
 
 Deploy:
   stage: deploy
+
+  tags:
+  - docker
+  
   script:
     - export DOCKER_USERNAME=$DOCKER_USERNAME
     - docker-compose up -d
